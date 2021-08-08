@@ -1,20 +1,27 @@
 import java.io.File
-import java.io.FileNotFoundException
-import java.lang.Exception
 
 private const val PATH = "animal_ascii_files/"
 
 fun main() {
-    println(importAnimal("camel"))
+    val animalList = listOf("camel", "lion", "deer", "goose", "bat", "rabbit")
+    val message = "Please enter the number of the habitat you would like to view: "
+    val end = "---\nYou've reached the end of the program. To check another habitat, please restart the watcher."
+    val option = getRange(message, 0..animalList.lastIndex)
+
+    println(importAnimal(animalList[option]) + "\n$end")
 }
 
 fun importAnimal(animal: String): String {
-    return try {
-        File("$PATH$animal.txt").readLines().joinToString("\n")
-    } catch (e: Exception) {
-        when (e) {
-            is FileNotFoundException -> "$animal file could not be found"
-            else -> "There was an error in loading your file. Please ensure it is not open in another program.\n"
-        }
-    }
+    return File("$PATH$animal.txt").readLines().joinToString("\n")
+}
+
+fun getRange(message: String, range: IntRange): Int {
+    val num = getString(message).toIntOrNull() ?: -1
+
+    return if (range.contains(num)) num else getRange("Please enter a number within [$range]: ", range)
+}
+
+fun getString(message: String): String {
+    print(message)
+    return readLine()!!.also { println() }
 }
