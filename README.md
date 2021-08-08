@@ -1,17 +1,31 @@
 # zookeeper
-Stage 1 of 4 for JetBrains Academy - Kotlin - [Zookeeper project](https://hyperskill.org/projects/196/stages/975/implement).   
-Just prints the required output.
+Stage 2 of 4 for JetBrains Academy - Kotlin - [Zookeeper project](https://hyperskill.org/projects/196/stages/976/implement).   
+Prints the contents of the camel.txt file ( wasn't required to load from file, but I wanted some extra practice with files ).
 ## Requirements
 ### Description
-You're almost there! In the final stage of the project, you need to take the user input data and perform the calculations. To determine the tip amount, take the overall bill value, multiply the number by the tip percentage, and divide it by 100. Output the tip amount with two digits in the fraction part.
+One of the most important parts of working with animals is keeping an eye on them. We need to see the animals on the screen to know how they are doing, right? Now we are ready to print something awesome: an image of an animal!
 ### Objectives
-To begin with, you will develop a simple printer. Your program should display the text from the output example.
+For the second stage, you will need to develop an animal printer. Your program should display the animal identified in the code field.
 ### Example
-The output:
+Your output should contain the following ASCII image:
 ```
-I love animals!
-Let's check on the animals...
-The deer looks fine.
-The bat looks happy.
-The lion looks healthy.
+Switching on the camera in the camel habitat...
+ ___.-''''-.
+/___  @    |
+',,,,.     |         _.'''''''._
+     '     |        /           \
+     |     \    _.-'             \
+     |      '.-'                  '-.
+     |                               ',
+     |                                '',
+      ',,-,                           ':;
+           ',,| ;,,                 ,' ;;
+              ! ; !'',,,',',,,,'!  ;   ;:
+             : ;  ! !       ! ! ;  ;   :;
+             ; ;   ! !      ! !  ; ;   ;,
+            ; ;    ! !     ! !   ; ;
+            ; ;    ! !    ! !     ; ;
+           ;,,      !,!   !,!     ;,;
+           /_I      L_I   L_I     /_I
+Look at that! Our little camel is sunbathing!
 ```
