@@ -1,27 +1,32 @@
 import java.io.File
+import java.util.*
 
 private const val PATH = "animal_ascii_files/"
 
 fun main() {
     val animalList = listOf("camel", "lion", "deer", "goose", "bat", "rabbit")
     val message = "Please enter the number of the habitat you would like to view: "
-    val end = "---\nYou've reached the end of the program. To check another habitat, please restart the watcher."
-    val option = getRange(message, 0..animalList.lastIndex)
+    val end = "See you later!"
+    var option = getString(message)
 
-    println(importAnimal(animalList[option]) + "\n$end")
+    while (option.lowercase(Locale.getDefault()) != "exit") {
+        println("\n" + importAnimal(animalList[getRange(option, 0..animalList.lastIndex)]))
+        option = getString(message)
+    }
+    println(end)
 }
 
 fun importAnimal(animal: String): String {
-    return File("$PATH$animal.txt").readLines().joinToString("\n")
+    return File("$PATH$animal.txt").readText()
 }
 
-fun getRange(message: String, range: IntRange): Int {
-    val num = getString(message).toIntOrNull() ?: -1
+fun getRange(number: String, range: IntRange): Int {
+    val num = number.toIntOrNull() ?: -1
 
-    return if (range.contains(num)) num else getRange("Please enter a number within [$range]: ", range)
+    return if (range.contains(num)) num else getRange(getString("Please enter a number within [$range]: "), range)
 }
 
 fun getString(message: String): String {
     print(message)
-    return readLine()!!.also { println() }
+    return readLine()!!
 }
